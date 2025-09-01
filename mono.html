@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>de don mono</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="scene" aria-label="Tarjeta de cumpleaños con girasoles">
+    <!-- Cielo/estrellas -->
+    <div class="stars" aria-hidden="true"></div>
+
+    <!-- Orbes de brillo suaves -->
+    <div class="glow-orb" style="left: 12%; top: 18%; animation-delay: 0s;"></div>
+    <div class="glow-orb" style="right: 10%; top: 28%; animation-delay: 4s;"></div>
+    <div class="glow-orb" style="left: 58%; top: 62%; animation-delay: 8s;"></div>
+
+    <!-- Texto central -->
+    <header class="title">
+      <h1>Feliz Cumpleaños Celinda</h1>
+      <h2> Espero que te guste de parte de Joaquin</h2>
+      <!-- Mensaje opcional -->
+      <p class="dedication">Tu ing. en sistemas favorito</p>
+    </header>
+    <!-- Botón para ir a fotos.html -->
+    <div class="btn-container">
+      <a href="fotos.html" class="redirect-btn">aplasta aqui</a>
+    </div>
+    
+
+    <!-- Campo de girasoles (al fondo, lado izquierdo como la referencia) -->
+    <section class="sunflower-field" aria-hidden="true">
+      <!-- Girasol 1 -->
+      <div class="sunflower" style="left: 6%; bottom: 8%; transform: scale(1.35); animation-delay: .2s;">
+        <div class="sunflower-center"></div>
+        <!-- 12 pétalos -->
+        <div class="sunflower-petal" style="transform: rotate(0deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(30deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(60deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(90deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(120deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(150deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(180deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(210deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(240deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(270deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(300deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(330deg);"></div>
+        <div class="sunflower-stem"></div>
+        <div class="sunflower-leaf"></div>
+        <div class="sunflower-leaf2"></div>
+      </div>
+
+      <!-- Girasol 2 (un poco más bajo, a la izquierda) -->
+      <div class="sunflower" style="left: 18%; bottom: 10%; transform: scale(1.05); animation-delay: 1s;">
+        <div class="sunflower-center"></div>
+        <!-- pétalos -->
+        <div class="sunflower-petal" style="transform: rotate(0deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(30deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(60deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(90deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(120deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(150deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(180deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(210deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(240deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(270deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(300deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(330deg);"></div>
+        <div class="sunflower-stem"></div>
+        <div class="sunflower-leaf"></div>
+        <div class="sunflower-leaf2"></div>
+      </div>
+
+      <!-- Girasol 3 (más pequeño delante, como en la referencia) -->
+      <div class="sunflower" style="left: 11%; bottom: 3%; transform: scale(0.9); animation-delay: .6s;">
+        <div class="sunflower-center"></div>
+        <!-- pétalos -->
+        <div class="sunflower-petal" style="transform: rotate(0deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(30deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(60deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(90deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(120deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(150deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(180deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(210deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(240deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(270deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(300deg);"></div>
+        <div class="sunflower-petal" style="transform: rotate(330deg);"></div>
+        <div class="sunflower-stem"></div>
+        <div class="sunflower-leaf"></div>
+        <div class="sunflower-leaf2"></div>
+      </div>
+    </section>
+
+    <!-- Partículas doradas (se crean vía JS) -->
+    <div id="particles-layer" aria-hidden="true"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

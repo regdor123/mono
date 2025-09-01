@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  --gold: #FFD700;
+  --bg1: #0b1219;
+  --bg2: #111a24;
+  --bg3: #000000;
+}
+
+html, body { height: 100%; }
+
+body{
+  background: radial-gradient(ellipse at center, #1a2332 0%, #0f1419 70%, #000 100%);
+  color: #eaeaea;
+  font-family: 'Playfair Display', serif;
+  overflow: hidden;
+}
+
+#scene{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Estrellas */
+.stars{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.star{
+  position: absolute;
+  background: #e6f3ff;
+  border-radius: 50%;
+  animation: twinkle 3.6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,.5));
+}
+
+@keyframes twinkle{
+  0% { opacity: .25; transform: scale(.8); }
+  100%{ opacity: 1; transform: scale(1.15); }
+}
+
+/* Orbes suaves */
+.glow-orb{
+  position: absolute;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,.12) 0%, transparent 70%);
+  animation: orbFloat 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+@keyframes orbFloat{
+  0%,100%{ transform: translate(0,0) scale(1); opacity:.35;}
+  33%{ transform: translate(220px,-120px) scale(1.2); opacity:.6;}
+  66%{ transform: translate(-160px,60px) scale(.85); opacity:.45;}
+}
+
+/* Título central */
+.title{
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.title h1{
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  color: var(--gold);
+  letter-spacing: .5px;
+  text-shadow: 0 0 16px rgba(255,215,0,.45), 0 0 34px rgba(255,215,0,.35);
+  animation: titleGlow 4.5s ease-in-out infinite;
+  margin-bottom: .25rem;
+}
+@keyframes titleGlow{
+  0%,100%{ filter: drop-shadow(0 0 10px rgba(255,215,0,.45)); transform: translateX(-50%) scale(1);}
+  50%{ filter: drop-shadow(0 0 22px rgba(255,215,0,.85));
+       transform: translateX(-50%) scale(1.02);}
+}
+
+.title h2{
+  font-size: clamp(1rem, 2.6vw, 2rem);
+  font-weight: 400;
+  letter-spacing: .35rem;
+  color: #e6e6e6;
+  text-transform: uppercase;
+  text-shadow: 0 0 14px rgba(255,255,255,.25);
+  animation: subtitleGlow 4.5s ease-in-out infinite 1s;
+}
+@keyframes subtitleGlow{
+  0%,100%{ text-shadow: 0 0 14px rgba(255,255,255,.25);}
+  50%{ text-shadow: 0 0 24px rgba(255,255,255,.5), 0 0 36px rgba(255,215,0,.25);}
+}
+
+.dedication{
+  margin-top: .75rem;
+  font-size: clamp(.9rem, 2vw, 1.15rem);
+  color: #d7d7d7;
+  opacity: .9;
+}
+
+/* Campo de girasoles */
+.sunflower-field{
+  position: absolute;
+  inset: 0;
+  z-index: 4;          /* detrás del título */
+  pointer-events: none;
+}
+
+/* Girasol base */
+/* Girasol base */
+.sunflower{
+  position: absolute;
+  bottom: 60px; /* ↑ antes estaba más abajo, ahora subido */
+  filter: drop-shadow(0 0 14px rgba(255,215,0,.18));
+  animation: gentleSway 8s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+@keyframes gentleSway{
+  0%,100%{ transform: rotate(-2deg) scale(1);}
+  25%{ transform: rotate(.9deg) scale(1.01);}
+  50%{ transform: rotate(2deg) scale(1);}
+  75%{ transform: rotate(-1deg) scale(1.01);}
+}
+
+/* Centro del girasol */
+.sunflower-center{
+  width: 68px; height: 68px;
+  background: radial-gradient(circle at 30% 30%, #8B4513 0%, #654321 40%, #3a2a22 70%, #1f1f1f 100%);
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  box-shadow: inset 0 0 16px rgba(0,0,0,.75), 0 0 18px rgba(139,69,19,.25);
+}
+.sunflower-center::before{
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(160,82,45,.8) 0%, transparent 30%),
+    radial-gradient(circle at 70% 30%, rgba(139,69,19,.6) 0%, transparent 25%),
+    radial-gradient(circle at 30% 75%, rgba(101,67,33,.7) 0%, transparent 35%);
+}
+
+/* Pétalos */
+.sunflower-petal{
+  position: absolute;
+  width: 32px; height: 76px;
+  top: -38px; left: 18px;
+  border-radius: 50% 50% 50% 50%/70% 70% 30% 30%;
+  background: linear-gradient(180deg,
+    #FFD700 0%, #FFC000 22%, #FFB000 42%, #FFA500 64%, #FF9800 82%, #FF8C00 100%);
+  transform-origin: 50% 86%;
+  z-index: 1;
+  box-shadow:
+    inset 2px 0 6px rgba(255,200,0,.7),
+    inset -2px 0 6px rgba(255,140,0,.5),
+    0 0 10px rgba(255,215,0,.26);
+}
+.sunflower-petal::before{
+  content:"";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,.45) 0%, rgba(255,255,255,.12) 30%, transparent 70%);
+}
+
+/* Tallo y hojas */
+.sunflower-stem{
+  position: absolute;
+  top: 64px; left: 28px;
+  width: 10px; height: 150px;
+  border-radius: 6px;
+  background: linear-gradient(90deg,#1a5c1a 0%, #228B22 50%, #1a5c1a 100%);
+  box-shadow: inset 2px 0 4px rgba(0,0,0,.3), inset -2px 0 4px rgba(255,255,255,.08), 0 0 8px rgba(34,139,34,.2);
+}
+
+.sunflower-leaf,
+.sunflower-leaf2{
+  position: absolute;
+  width: 36px; height: 56px;
+  top: 96px; left: 6px;
+  background: linear-gradient(45deg,#2F5233 0%,#228B22 32%,#32CD32 62%,#228B22 100%);
+  border-radius: 10% 70% 20% 70%;
+  transform-origin: 70% 30%;
+  animation: leafSway 6s ease-in-out infinite;
+  box-shadow: inset 1px 1px 4px rgba(255,255,255,.2), 0 0 8px rgba(50,205,50,.22);
+}
+.sunflower-leaf2{
+  width: 30px; height: 46px;
+  left: auto; right: 10px; top: 118px;
+  border-radius: 70% 10% 60% 20%;
+  transform-origin: 30% 30%;
+  animation: leafSway2 7s ease-in-out infinite;
+}
+@keyframes leafSway{
+  0%,100%{ transform: rotate(0deg); }
+  50%{ transform: rotate(8deg); }
+}
+@keyframes leafSway2{
+  0%,100%{ transform: rotate(0deg); }
+  50%{ transform: rotate(-7deg); }
+}
+
+/* Partículas doradas */
+#particles-layer{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.floating-particle{
+  position: absolute;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: .8;
+  animation: floatUp 8.5s linear forwards;
+  filter: drop-shadow(0 0 6px rgba(255,215,0,.8));
+}
+@keyframes floatUp{
+  0%{ transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+  10%{ opacity: .85; }
+  90%{ opacity: .85; }
+  100%{ transform: translateY(-120px) translateX(100px) rotate(360deg); opacity: 0; }
+}
+
+/* Responsivo: bajamos un poco el bloque de texto en pantallas pequeñas */
+@media (max-width: 700px){
+  .title{ top: 40%; }
+}
+
+.btn-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.redirect-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: linear-gradient(45deg, #e7e137, #384775);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.redirect-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
